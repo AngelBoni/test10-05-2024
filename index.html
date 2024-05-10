@@ -1,14 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        .calculator {
+            width: 300px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        input[type="button"] {
+            width: 70px;
+            height: 40px;
+            margin: 5px;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="calculator">
+        <input type="text" id="screen" disabled>
+        <br>
+        <input type="button" value="7" onclick="appendToScreen('7')">
+        <input type="button" value="8" onclick="appendToScreen('8')">
+        <input type="button" value="9" onclick="appendToScreen('9')">
+        <input type="button" value="/" onclick="appendToScreen('/')">
+        <br>
+        <input type="button" value="4" onclick="appendToScreen('4')">
+        <input type="button" value="5" onclick="appendToScreen('5')">
+        <input type="button" value="6" onclick="appendToScreen('6')">
+        <input type="button" value="*" onclick="appendToScreen('*')">
+        <br>
+        <input type="button" value="1" onclick="appendToScreen('1')">
+        <input type="button" value="2" onclick="appendToScreen('2')">
+        <input type="button" value="3" onclick="appendToScreen('3')">
+        <input type="button" value="-" onclick="appendToScreen('-')">
+        <br>
+        <input type="button" value="0" onclick="appendToScreen('0')">
+        <input type="button" value="." onclick="appendToScreen('.')">
+        <input type="button" value="C" onclick="clearScreen()">
+        <input type="button" value="+" onclick="appendToScreen('+')">
+        <br>
+        <input type="button" value="=" onclick="calculate()">
+    </div>
+
+    <script>
+        function appendToScreen(value) {
+            document.getElementById('screen').value += value;
+        }
+
+        function clearScreen() {
+            document.getElementById('screen').value = '';
+        }
+
+        function calculate() {
+            var result = eval(document.getElementById('screen').value);
+            document.getElementById('screen').value = result;
+        }
+    </script>
 </body>
 </html>
